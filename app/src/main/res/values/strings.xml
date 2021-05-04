@@ -1,0 +1,28 @@
+<resources>
+    <!--Application name-->
+    <string name="app_name">Flickr</string>
+
+    <!--Search hint-->
+    <string name="search_hint">Search the city name ...</string>
+
+    <!--Urls-->
+    <string name="title_activity_image_viewer">ImageViewerActivity</string>
+
+    <!--Tags-->
+    <string name="MainActivity">MainActivity</string>
+    <string name="SearchableActivity">SearchableActivity</string>
+
+    <!--Messages-->
+    <string name="SearchRequest_internal">An error appeared. Please, check your internet connection and retry.</string>
+    <string name="SearchRequest_external">Unable to give a service temporarily. Please, try again later.</string>
+    <string name="SearchRequest_wrong">Something went wrong. Please try again.</string>
+    <string name="SearchRequest_no_data_loaded">No data could be loaded.</string>
+
+
+    <!--Request Details-->
+    <string name="searchUrl">https://api.flickr.com/services/rest/?method=flickr.photos.search&amp;api_key=37ad288835e4c64fc0cb8af3f3a1a65d&amp;format=json&amp;nojsoncallback=1&amp;safe_search=1&amp;per_page=20&amp;text=</string>
+    <string name="page">&amp;page=</string>
+    <string name="photos">photos</string>
+    <string name="photo">photo</string>
+
+</resources>
