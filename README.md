@@ -1,4 +1,4 @@
-# FlickrMVP
+# Flickr
 
 ### Flickr search application
 
