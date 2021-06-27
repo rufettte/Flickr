@@ -18,11 +18,12 @@
     <string name="SearchRequest_wrong">Something went wrong. Please try again.</string>
     <string name="SearchRequest_no_data_loaded">No data could be loaded.</string>
 
-
     <!--Request Details-->
     <string name="searchUrl">https://api.flickr.com/services/rest/?method=flickr.photos.search&amp;api_key=37ad288835e4c64fc0cb8af3f3a1a65d&amp;format=json&amp;nojsoncallback=1&amp;safe_search=1&amp;per_page=20&amp;text=</string>
     <string name="page">&amp;page=</string>
     <string name="photos">photos</string>
     <string name="photo">photo</string>
+
+    <string name="img_url">img_url</string>
 
 </resources>

@@ -4,9 +4,7 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import com.flickr.flickr.R;
 
-/*
- This class helps to build the request configuration (url) for the Search operation in the string url.
-*/
+
 public class SearchParameterBuilder implements ParameterBuilder {
     private int page;
     private String query;
