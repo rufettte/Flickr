@@ -2,6 +2,8 @@ package com.flickr.Objects;
 
 import android.text.Html;
 
+import androidx.annotation.NonNull;
+
 import java.io.Serializable;
 
 
@@ -105,7 +107,7 @@ public class Image implements Serializable {
     * */
     public String getUrl() {
         return "https://farm"
-                + String.valueOf(getFarm())
+                + getFarm()
                 + ".static.flickr.com/"
                 + getServer()
                 + "/"
@@ -115,6 +117,7 @@ public class Image implements Serializable {
                 + ".jpg";
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "Image{" +

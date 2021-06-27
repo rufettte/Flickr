@@ -1,32 +1,13 @@
 package com.flickr.flickr;
 
 import android.content.Context;
-import android.util.Log;
-
 import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
-
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.flickr.Activities.SearchableActivity;
-import com.flickr.Objects.Image;
 import com.flickr.RequestHandler.SearchRequest;
-
-import org.apache.commons.io.IOUtils;
 import org.json.JSONException;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.StringWriter;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.List;
-import java.util.stream.Stream;
-
 import static org.junit.Assert.*;
 
 /**

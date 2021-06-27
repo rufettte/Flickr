@@ -18,7 +18,7 @@ public class ImageViewerActivity extends AppCompatActivity {
         /* Gets the Serializable object - Image - passed from the
            context of the SearchableActivity (see ImageAdapter class for details) via the intent. */
         Image image = (Image) getIntent().getSerializableExtra("Image");
-        ImageView iw = (ImageView) findViewById(R.id.imageViewer);
+        ImageView iw = findViewById(R.id.imageViewer);
 
         /*External 3rd party library, which is open source, developer friendly and quite fast.
         * Displays the image of the selected search list item.

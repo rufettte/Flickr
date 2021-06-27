@@ -1,22 +1,17 @@
 package com.flickr.RequestHandler;
+
+
 import android.content.Context;
-import android.util.Log;
 import android.view.View;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.flickr.Activities.SearchableActivity;
-import com.flickr.Adapters.ImageAdapter;
 import com.flickr.Objects.Image;
 import com.flickr.flickr.R;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.List;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
 
 
 /*
@@ -24,8 +19,6 @@ import java.util.concurrent.TimeoutException;
 * onPostExecutes method from RequestHandler class to implement it w.r.t its needs.
 * */
 public class SearchRequest extends RequestHandler{
-
-    List<Image> images;
 
     public SearchRequest(Context context) {
         super(context);
@@ -50,7 +43,7 @@ public class SearchRequest extends RequestHandler{
         }
 
         try {
-            images = mapJSONResponseBody(result);
+            List<Image> images = mapJSONResponseBody(result);
             if (images.isEmpty()) /* Empty search result ...*/
                 showMessage(context.getString(R.string.SearchRequest_no_data_loaded));
             else /* Add search results to the list*/
@@ -67,7 +60,6 @@ public class SearchRequest extends RequestHandler{
         JSONObject jsonObject = new JSONObject(result);
         JSONArray jsonArray = jsonObject.getJSONObject(context.getString(R.string.photos)).getJSONArray(context.getString(R.string.photo));
         ObjectMapper mapper = new ObjectMapper();
-        List<Image> loadedImages = mapper.readValue(jsonArray.toString(), mapper.getTypeFactory().constructCollectionType(List.class, Image.class));
-        return loadedImages;
+        return mapper.readValue(jsonArray.toString(), mapper.getTypeFactory().constructCollectionType(List.class, Image.class));
     }
 }

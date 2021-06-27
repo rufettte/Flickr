@@ -1,4 +1,5 @@
 package com.flickr.Activities;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -6,23 +7,16 @@ import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.SearchRecentSuggestions;
-import android.util.Log;
-
 import com.flickr.Objects.Image;
 import com.flickr.Adapters.ImageAdapter;
 import com.flickr.RequestHandler.SearchRequest;
 import com.flickr.RequestParamsBuilder.SearchParameterBuilder;
-import com.flickr.RequestHandler.RequestHandler;
 import com.flickr.Utils.SuggestionProvider;
 import com.flickr.flickr.R;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeUnit;
 
 /*
 * This activity class performs the search operation, shows the search results and is capable of
@@ -36,19 +30,11 @@ import java.util.concurrent.TimeUnit;
 * */
 public class SearchableActivity extends Activity {
 
-    Context context;
-    RecyclerView recyclerView;
-    ImageAdapter imageAdapter;
-    SearchParameterBuilder parameterBuilder;
+    private Context context;
+    private RecyclerView recyclerView;
+    private ImageAdapter imageAdapter;
+    private SearchParameterBuilder parameterBuilder;
 
-    public void init(){
-        context = this;
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(context));
-        imageAdapter = new ImageAdapter(new ArrayList<Image>(), context);
-        recyclerView.setAdapter(imageAdapter);
-        parameterBuilder = new SearchParameterBuilder(1);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +53,16 @@ public class SearchableActivity extends Activity {
                 }
             }
         });
+    }
+
+
+    private void init(){
+        context = this;
+        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(context));
+        imageAdapter = new ImageAdapter(new ArrayList<>(), context);
+        recyclerView.setAdapter(imageAdapter);
+        parameterBuilder = new SearchParameterBuilder(1);
     }
 
     /* Updates the search list:
@@ -108,7 +104,7 @@ public class SearchableActivity extends Activity {
     /*
     * loads the search results.
     * */
-    public void loader(String[] params){
+    private void loader(String[] params){
         SearchRequest requestHandler = new SearchRequest(context);
         requestHandler.execute(params);
     }

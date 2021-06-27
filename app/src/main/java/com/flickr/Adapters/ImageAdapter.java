@@ -7,12 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.flickr.Activities.ImageViewerActivity;
 import com.flickr.Objects.Image;
 import com.flickr.flickr.R;
-
 import java.util.List;
 
 public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> {
@@ -20,8 +20,8 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
     * images - List of the items
     * context - Current context of the application; note that this is important when clicking on an item.
     * */
-    private List<Image> images;
-    private Context context;
+    private final List<Image> images;
+    private final Context context;
 
     /*
      * Constructs the ImageAdapter
@@ -50,7 +50,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
     /*
     * This class is important for keeping item VISIBLE to the user.
     * */
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         /*
         * imageView - representator of the image(s) of the current item(s).
         * titleView - representator of the title(s) of the current item(s).
@@ -63,8 +63,8 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
         * */
         public ViewHolder(View v) {
             super(v);
-            imageView = (ImageView) v.findViewById(R.id.image);
-            titleView = (TextView) v.findViewById(R.id.title);
+            imageView = v.findViewById(R.id.image);
+            titleView = v.findViewById(R.id.title);
         }
     }
 
@@ -72,6 +72,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
     * This function creates the View (e.g., CardView),
     * which is hold by the view holder to be presentable (visible) to the user.
     * */
+    @NonNull
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent,
                                          int viewType) {
@@ -80,8 +81,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
                 parent.getContext());
         View v =
                 inflater.inflate(R.layout.item, parent, false);
-        ViewHolder vh = new ViewHolder(v);
-        return vh;
+        return new ViewHolder(v);
     }
 
     /*
@@ -110,13 +110,10 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
         * When an item is clicked, another activity is opened, where the image
         * of the clicked item is demonstrated to the user with up-scaled view.
         */
-        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, ImageViewerActivity.class);
-                intent.putExtra("Image", images.get(position));
-                context.startActivity(intent);
-            }
+        viewHolder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, ImageViewerActivity.class);
+            intent.putExtra("Image", images.get(position));
+            context.startActivity(intent);
         });
     }
 }

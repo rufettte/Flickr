@@ -34,12 +34,11 @@ public class SearchParameterBuilder implements ParameterBuilder {
     @NonNull
     @Override
     public String[] getParams(@NonNull Context context) {
-        String params[] = {
+        return new String[]{
                 context.getString(R.string.searchUrl) + //url
                 getQuery() + // search_term
                 context.getString(R.string.page) +
                 getPage() // page number
         };
-        return params;
     }
 }

@@ -3,7 +3,6 @@ package com.flickr.RequestHandler;
 
 import androidx.core.widget.ContentLoadingProgressBar;
 import com.google.android.material.snackbar.Snackbar;
-
 import java.net.HttpURLConnection;
 import java.io.InputStreamReader;
 import android.content.Context;
@@ -12,8 +11,6 @@ import android.app.Activity;
 import android.os.AsyncTask;
 import com.flickr.flickr.R;
 import java.io.IOException;
-
-import android.util.Log;
 import android.view.View;
 import java.net.URL;
 
@@ -23,8 +20,9 @@ import java.net.URL;
    how SearchRequest class does. So, all of the methods defined in this class
    have been implemented by considering all of the request futures. */
 public abstract class RequestHandler extends AsyncTask<String, Void, String> {
-    Context context;
-    ContentLoadingProgressBar contentLoadingProgressBar;
+
+    protected Context context;
+    protected ContentLoadingProgressBar contentLoadingProgressBar;
 
     public RequestHandler(Context context) {
         this.context = context;
@@ -65,7 +63,7 @@ public abstract class RequestHandler extends AsyncTask<String, Void, String> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        contentLoadingProgressBar = (ContentLoadingProgressBar) ((Activity) context).findViewById(R.id.progressbar);
+        contentLoadingProgressBar = ((Activity) context).findViewById(R.id.progressbar);
         contentLoadingProgressBar.setVisibility(View.VISIBLE);
     }
 
@@ -73,8 +71,8 @@ public abstract class RequestHandler extends AsyncTask<String, Void, String> {
     accordingly. This process is done in other thread, rather than the main thread.*/
     @Override
     protected String doInBackground(String... params) {
-        HttpURLConnection httpURLConnection = null;
-        String responseBody = null;
+        HttpURLConnection httpURLConnection;
+        String responseBody;
         try {
             httpURLConnection = createRequestConnection(params);
             responseBody  = getResponseBody(httpURLConnection);

@@ -17,7 +17,8 @@
         <!--Important configuration for showing search history to the user-->
         <provider
             android:name="com.flickr.Utils.SuggestionProvider"
-            android:authorities="com.flickr.SuggestionProvider" />
+            android:authorities="com.flickr.SuggestionProvider"
+            android:exported="false" />
 
         <!--Main Activity, the launcher activity, shows the search dialog to the user-->
         <activity
