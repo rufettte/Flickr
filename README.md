@@ -8,4 +8,4 @@
 Android Studio (Java), AsyncTask, Suggestion Provider, RecyclerView
 
 ## Testing: 
-JUnit
+JUnit, Mockito
