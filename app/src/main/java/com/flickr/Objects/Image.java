@@ -7,17 +7,8 @@ import androidx.annotation.NonNull;
 import java.io.Serializable;
 
 
-/*
-* This class aims to hold the information of each Image, loaded as the result of the search operation.
-*
-* Note 1: We are using objectmapper, to easily map the json object data into this object.
-  Therefore, we are using the names of the variables similar as the parameter names of the json object.
 
-* Note 2: This class implements Serializable interface, because this makes it possible to pass the whole object
-  from one activity to another; i.e., from SearchableActivity to ImageViewerActivity.
-
-* */
-public class Image implements Serializable {
+public class Image {
     private String id;
     private String owner;
     private String secret;
@@ -100,11 +91,6 @@ public class Image implements Serializable {
         this.isfamily = isfamily;
     }
 
-
-    /*
-    * This function creates the url of the image so as to be able to present it
-    * to the user through it.
-    * */
     public String getUrl() {
         return "https://farm"
                 + getFarm()

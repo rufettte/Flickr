@@ -71,7 +71,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
 
         viewHolder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, ImageViewerActivity.class);
-            intent.putExtra(context.getString(R.string.img_url), images.get(position));
+            intent.putExtra(context.getString(R.string.img_url), images.get(position).getUrl());
             context.startActivity(intent);
         });
     }

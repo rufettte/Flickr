@@ -13,9 +13,8 @@
     <string name="SearchableActivity">SearchableActivity</string>
 
     <!--Messages-->
-    <string name="SearchRequest_internal">An error appeared. Please, check your internet connection and retry.</string>
-    <string name="SearchRequest_external">Unable to give a service temporarily. Please, try again later.</string>
-    <string name="SearchRequest_wrong">Something went wrong. Please try again.</string>
+    <string name="SearchRequest_external">An unexpected error appeared. Please, check your internet connection and retry.</string>
+    <string name="SearchRequest_internal">Unable to give a service temporarily. Please, try again later.</string>
     <string name="SearchRequest_no_data_loaded">No data could be loaded.</string>
 
     <!--Request Details-->
