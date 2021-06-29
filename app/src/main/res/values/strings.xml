@@ -3,14 +3,7 @@
     <string name="app_name">Flickr</string>
 
     <!--Search hint-->
-    <string name="search_hint">Search the city name ...</string>
-
-    <!--Urls-->
-    <string name="title_activity_image_viewer">ImageViewerActivity</string>
-
-    <!--Tags-->
-    <string name="MainActivity">MainActivity</string>
-    <string name="SearchableActivity">SearchableActivity</string>
+    <string name="search_hint">Search the city name …</string>
 
     <!--Messages-->
     <string name="SearchRequest_external">An unexpected error appeared. Please, check your internet connection and retry.</string>
@@ -23,6 +16,7 @@
     <string name="photos">photos</string>
     <string name="photo">photo</string>
 
+    <!--Required labels while sending data from one activity to another-->
     <string name="img_url">img_url</string>
 
 </resources>
